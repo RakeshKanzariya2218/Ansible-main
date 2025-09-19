@@ -1,4 +1,4 @@
---- Ansible is a configure management tool 
+# --- Ansible is a configure management tool 
 
 - If i want to perform same activity in many servers then using ansible
 - Ansible connect target server and perform task through 3 components :
