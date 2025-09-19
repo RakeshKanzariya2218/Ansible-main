@@ -1,0 +1,36 @@
+--- Ansible is a configure management tool 
+
+- If i want to perform same activity in many servers then using ansible
+- Ansible connect target server and perform task through 3 components :
+   - ssh 
+   - inventory file
+   - yaml file 
+
+    - inventory file containe target server information and list of target server
+    - ssh keys are using to connect the target server 
+    - yaml file inside contain the ctivity which is performed by the target server 
+
+- install ansibel 
+ ```
+ sudo dnf install ansible -y 
+ ``` 
+- inventory fiel default path is  ` /etc/ansible/hoosts `
+run ansible by : [ ansible all -a "yum install git -y" -b ] ( -b is for become as root user )
+- if we create inventory custom then need to mention in all commands 
+like  : [ ansibel all -i inventory -a "yum install git -y" -b ]
+
+
+- if we create ami from target server and again launch server from that ami and add ip in ansible then command is not working because default key verificatioin is needed so resolve that issue 
+-  Host Key verification put false by default it is true 
+	-- sudo vi /etc/ansible/ansible.cfg #create config file
+	--[defaults]
+	   host_key_checking = False
+
+
+
+-------------------------------------------------
+
+- userdata is working like ansible so why need ansibel 
+
+- ansible is flexible like after created server we can add or modify the commands 
+- userdata is the fic=xed entity so after created serve it is not work .
