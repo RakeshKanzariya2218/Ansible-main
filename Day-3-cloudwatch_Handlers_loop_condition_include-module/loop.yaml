@@ -1,0 +1,14 @@
+---
+- name: loopr playbook
+  hosts: all
+  become: yes
+  tasks:
+    - name: install multiple softwares
+      yum:
+        name: "{{item}}"
+        state: latest
+      with_items:
+        - git
+        - tree
+
+        # it means we can run as loop no need to write many time same things 
